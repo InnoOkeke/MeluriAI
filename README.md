@@ -1,200 +1,201 @@
 # MeluriAI - AI-Powered Cross-Chain Yield Aggregator
 
-MeluriAI is a sophisticated cross-chain yield optimization platform that combines AI-powered decision making, machine learning-based risk assessment, and natural language processing to maximize DeFi yields while minimizing risks.
+MeluriAI is an AI-powered cross-chain yield aggregator and risk monitoring agent that enables users to optimize yield farming across multiple blockchain networks through natural language commands.
 
-## 🌐 Supported Networks
+## Features
 
-- **BNB Chain** - Fast, low-cost DeFi hub
-- **Ethereum** - Most established DeFi ecosystem
-- **Base** - Coinbase L2
-- **Solana** - High-performance native protocols
-- **Polygon** - High-throughput L2
-- **Arbitrum** - Leading Ethereum L2
-- **Optimism** - Optimistic rollup
-- **Linea** - zkEVM L2
-- **SUI** - Move-based smart contracts
+- 🌐 **Multi-Chain Support**: BNB Chain, Ethereum, Base, Solana, Polygon, Arbitrum, Optimism, Linea, and SUI
+- 🤖 **AI-Powered Optimization**: Automatic yield optimization using ML-based risk assessment
+- 💬 **Natural Language Interface**: Control your investments through simple commands
+- 🔒 **Risk Monitoring**: Continuous ML-based risk analysis and automated protective actions
+- 🔗 **Cross-Chain Routing**: Seamless fund movement across chains
+- 📊 **Real-Time Dashboard**: Monitor portfolio performance and risk metrics
 
-## 🏦 Integrated DeFi Protocols
-
-### Lending & Borrowing
-- Aave (multi-chain)
-- Compound (multi-chain)
-- Radiant Capital (BNB, Arbitrum, Base)
-- Venus Protocol (BNB Chain)
-
-### DEX & AMM
-- Curve Finance (multi-chain)
-- Uniswap V3 (multi-chain)
-- PancakeSwap (multi-chain)
-- Balancer (multi-chain)
-
-### Liquid Staking
-- Lido (Ethereum, Polygon)
-- Rocket Pool (Ethereum)
-- Ankr (multi-chain)
-- Marinade Finance (Solana)
-
-### Yield Aggregators
-- Beefy Finance (multi-chain)
-- Yearn Finance (multi-chain)
-- Autofarm (BNB, Polygon)
-
-### Solana Native
-- Kamino Finance
-- Marinade Finance
-- Drift Protocol
-
-### SUI Native
-- Cetus Protocol
-- Turbos Finance
-- Aftermath Finance
-
-## ✨ Key Features
-
-- **Natural Language Interface**: Control your investments with simple commands via web dashboard or Telegram
-- **AI-Powered Optimization**: Automatically finds and allocates funds to highest yield opportunities
-- **ML Risk Monitoring**: Continuous risk assessment using IsolationForest, RandomForest, and Autoencoder models
-- **Cross-Chain Operations**: Seamless fund routing across 9 blockchain networks
-- **Transaction Simulation**: Preview outcomes before execution
-- **Automated Protection**: Set conditional rules for automatic risk mitigation
-- **WalletConnect Integration**: Unified authentication for all supported chains
-- **Real-time Notifications**: WebSocket and Telegram alerts for important events
-
-## 🏗️ Architecture
+## Project Structure
 
 ```
-Frontend (Next.js + React)
-    ↓
-API Gateway (FastAPI)
-    ↓
-Backend Microservices
-├── Yield Optimization Engine
-├── Risk Engine (ML Models)
-├── NLP Intent Parser
-├── Transaction Simulator
-├── Notification Service
-└── Portfolio Manager
-    ↓
-Smart Contracts
-├── Smart Vault
-├── Smart Router
-└── Strategy Adapters
-    ↓
-DeFi Protocols (20+)
+meluri-ai/
+├── contracts/          # Smart contracts (Solidity)
+├── backend/           # Backend services (Python/FastAPI)
+├── frontend/          # Web dashboard (Next.js/React)
+├── ml/               # ML models and training
+└── docker-compose.yml # Local development environment
 ```
 
-## 🛠️ Technology Stack
+## Prerequisites
 
-### Smart Contracts
-- Solidity 0.8.x
-- Foundry for testing and deployment
-- OpenZeppelin contracts
-- LayerZero/Wormhole/Axelar for cross-chain
-
-### Backend
-- Python 3.11+ with FastAPI
-- Node.js 20+ for real-time services
-- PostgreSQL 15+
-- Redis 7+
-- The Graph for blockchain indexing
-
-### ML/AI
-- Python with scikit-learn
-- PyTorch for deep learning
-- Transformers for NLP
-- MLflow for model management
-
-### Frontend
-- React 18+ with Next.js 14+
-- TypeScript
-- TailwindCSS
-- WalletConnect (Reown)
-- wagmi/viem for EVM chains
-- @solana/wallet-adapter for Solana
-- @mysten/wallet-adapter for SUI
-
-## 📋 Project Structure
-
-```
-MeluriAI/
-├── .kiro/
-│   └── specs/
-│       └── meluri-ai-yield-aggregator/
-│           ├── requirements.md    # 15 requirements, 75 acceptance criteria
-│           ├── design.md          # Architecture & 64 correctness properties
-│           └── tasks.md           # 30 major tasks, 23 phases
-├── contracts/                     # Smart contracts (Solidity)
-├── backend/                       # Backend services (Python/Node.js)
-├── frontend/                      # Web dashboard (Next.js)
-├── ml/                           # ML models and training
-└── docs/                         # Documentation
-
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
 - Node.js 20+
 - Python 3.11+
-- Foundry
-- Docker & Docker Compose
+- Foundry (for smart contracts)
+- Docker and Docker Compose
 - PostgreSQL 15+
 - Redis 7+
 
-### Installation
+## Quick Start
 
-1. Clone the repository:
+### 1. Clone the repository
+
 ```bash
-git clone https://github.com/InnoOkeke/MeluriAI.git
-cd MeluriAI
+git clone <repository-url>
+cd meluri-ai
 ```
 
-2. Follow the implementation plan in `.kiro/specs/meluri-ai-yield-aggregator/tasks.md`
+### 2. Set up environment variables
 
-3. Start with Phase 1: Foundation and Infrastructure
+```bash
+# Backend
+cp backend/.env.example backend/.env
+# Edit backend/.env with your configuration
 
-## 📖 Documentation
+# Frontend
+cp frontend/.env.example frontend/.env
+# Edit frontend/.env with your configuration
 
-- **Requirements**: See `.kiro/specs/meluri-ai-yield-aggregator/requirements.md`
-- **Design**: See `.kiro/specs/meluri-ai-yield-aggregator/design.md`
-- **Implementation Plan**: See `.kiro/specs/meluri-ai-yield-aggregator/tasks.md`
+# ML
+cp ml/.env.example ml/.env
+# Edit ml/.env with your configuration
+```
 
-## 🧪 Testing Strategy
+### 3. Start with Docker Compose
 
-- **Unit Tests**: Test individual components and functions
-- **Property-Based Tests**: Verify universal properties across all inputs (100+ iterations)
-- **Integration Tests**: Test complete user flows
-- **Load Tests**: Performance testing under high load
+```bash
+docker-compose up -d
+```
 
-## 🔒 Security
+This will start:
+- PostgreSQL database (port 5432)
+- Redis cache (port 6379)
+- FastAPI backend (port 8000)
+- Next.js frontend (port 3000)
+- MLflow tracking server (port 5000)
 
-- Smart contract audits from reputable firms
-- Bug bounty program
-- Emergency pause functionality
+### 4. Access the application
+
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+- MLflow: http://localhost:5000
+
+## Development Setup
+
+### Smart Contracts
+
+```bash
+cd contracts
+
+# Install Foundry dependencies
+forge install OpenZeppelin/openzeppelin-contracts
+forge install foundry-rs/forge-std
+
+# Build contracts
+forge build
+
+# Run tests
+forge test
+```
+
+### Backend
+
+```bash
+cd backend
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run database migrations
+alembic upgrade head
+
+# Start development server
+uvicorn src.main:app --reload
+```
+
+### Frontend
+
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### ML Models
+
+```bash
+cd ml
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Train models
+python train.py
+```
+
+## Testing
+
+### Smart Contracts
+```bash
+cd contracts
+forge test
+```
+
+### Backend
+```bash
+cd backend
+pytest
+```
+
+### Frontend
+```bash
+cd frontend
+npm test
+```
+
+## Supported Protocols
+
+### Multi-Chain Protocols
+- Aave (Ethereum, Polygon, Arbitrum, Optimism, Base)
+- Curve Finance (Ethereum, Polygon, Arbitrum, Optimism, Base)
+- Uniswap V3 (Ethereum, Polygon, Arbitrum, Optimism, Base, BNB)
+- Beefy Finance (BNB, Polygon, Arbitrum, Optimism, Base, Linea)
+- Yearn Finance (Ethereum, Polygon, Arbitrum, Optimism)
+
+### Chain-Specific Protocols
+- **BNB Chain**: Venus Protocol, PancakeSwap
+- **Ethereum**: Lido, Rocket Pool, Compound
+- **Solana**: Kamino Finance, Marinade Finance, Drift Protocol
+- **SUI**: Cetus Protocol, Turbos Finance, Aftermath Finance
+
+## Architecture
+
+MeluriAI follows a microservices architecture:
+
+1. **Smart Contracts**: On-chain vault and routing logic
+2. **Yield Optimization Engine**: Calculates optimal allocations
+3. **Risk Engine**: ML-based risk monitoring
+4. **NLP Intent Parser**: Natural language command processing
+5. **Transaction Simulator**: Pre-execution validation
+6. **Notification Service**: Multi-channel alerts
+7. **Portfolio Manager**: Position tracking and analytics
+
+## Security
+
+- Smart contracts audited by reputable firms
 - Multi-signature governance
-- Encrypted credentials (AES-256)
+- Emergency pause mechanisms
+- Encrypted credential storage
 - HTTPS/TLS for all communications
 
-## 🤝 Contributing
+## License
 
-Contributions are welcome! Please read our contributing guidelines before submitting PRs.
-
-## 📄 License
-
-[Add your license here]
-
-## 🔗 Links
-
-- Website: [Coming Soon]
-- Documentation: [Coming Soon]
-- Twitter: [Add your Twitter]
-- Discord: [Add your Discord]
-- Telegram: [Add your Telegram]
-
-## 👥 Team
-
-Built by the MeluriAI team
-
----
-
-**Note**: This project is under active development. The specification is complete and implementation is in progress.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

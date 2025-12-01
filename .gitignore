@@ -60,6 +60,7 @@ yarn-error.log*
 cache/
 out/
 broadcast/
+lib/
 
 # Next.js
 .next/
